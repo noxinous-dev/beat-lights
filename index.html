@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beat lights</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="top">
+        <h1>Beat lights</h1>
+      </header>
+      <main class="layout">
+        <section class="camera-panel" aria-label="Camera preview">
+          <div class="camera-stack">
+            <video id="cam" playsinline muted></video>
+            <canvas id="hands-canvas" aria-hidden="true"></canvas>
+          </div>
+          <p id="cam-status" class="status">Starting camera…</p>
+          <p id="hand-count" class="hand-count" aria-live="polite">Hands: —</p>
+          <div class="audio-bar" aria-label="Music">
+            <div class="soundcloud-block">
+              <p class="audio-label">SoundCloud</p>
+              <iframe
+                id="soundcloud-embed"
+                class="soundcloud-embed"
+                title="SoundCloud player"
+                width="100%"
+                height="166"
+                scrolling="no"
+                frameborder="no"
+                allow="autoplay"
+              ></iframe>
+            </div>
+          </div>
+          <aside class="performance-log" aria-label="Performance log">
+            <div class="perf-head">
+              <h2>Performance Log</h2>
+              <button type="button" id="clear-log" class="btn btn-small">Clear</button>
+            </div>
+            <p id="song-label" class="song-label"></p>
+            <div id="perf-list" class="perf-list"></div>
+          </aside>
+        </section>
+        <section class="stage-panel" aria-label="Photo and lights">
+          <div class="stage-shell">
+            <div class="photo-wrap">
+              <img id="photo-bg" src="/photo.png" alt="Stage background" />
+              <div id="hotspots" class="hotspots"></div>
+              <img id="photo-fg" class="photo-fg" alt="White tiger foreground" hidden />
+            </div>
+            <aside class="gesture-key" aria-label="Gesture key">
+              <h2>Gesture DJ</h2>
+              <div class="gesture-item" data-gesture-key="pinch">
+                <strong>Pinch</strong>
+                <span>Strobe burst</span>
+              </div>
+              <div class="gesture-item" data-gesture-key="open">
+                <strong>Open Palm</strong>
+                <span>Wide white wash</span>
+              </div>
+              <div class="gesture-item" data-gesture-key="point">
+                <strong>Point</strong>
+                <span>Sweeping beam</span>
+              </div>
+              <div class="gesture-item combo" data-gesture-key="dual-pinch">
+                <strong>Dual Pinch</strong>
+                <span>Mega strobe both sides</span>
+              </div>
+              <div class="gesture-item combo" data-gesture-key="dual-open">
+                <strong>Dual Open</strong>
+                <span>Stage blackout pulse</span>
+              </div>
+              <div class="gesture-item combo" data-gesture-key="dual-point">
+                <strong>Dual Point</strong>
+                <span>Crossing sweep beams</span>
+              </div>
+            </aside>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
